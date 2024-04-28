@@ -7,17 +7,20 @@ import (
 )
 
 type ProjectCongfig struct {
-	DSN           string `mapstructure:"dsn"`
-	ServerAddress string `mapstructure:"server_address"`
-	EncKey        string `mapstructure:"encryption_key"`
+	DSN           string `mapstructure:"DSN"`
+	ServerAddress string `mapstructure:"SERVER_ADDRESS"`
+	EncKey        string `mapstructure:"ENCRYPTION_KEY"`
 }
 
 var Config ProjectCongfig
 
 func LoadConfig(path string) {
-	viper.SetConfigName("config")
-	viper.SetConfigType("json")
+	viper.SetConfigName("app")
+	viper.SetConfigType("env")
 	viper.AddConfigPath(path)
+
+	viper.AutomaticEnv()
+
 	if err := viper.ReadInConfig(); err != nil {
 		log.Fatal(err)
 	}

@@ -1,5 +1,0 @@
-{
-    "dsn":"host=localhost user=root password=secret dbname=users port=5432 sslmode=disable TimeZone=Asia/Shanghai",
-    "server_address":"localhost:8080",
-    "encryption_key":"secret"
-}
